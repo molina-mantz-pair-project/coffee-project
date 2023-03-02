@@ -11,35 +11,30 @@
 /*div{*/
 /*    border: 1px solid black;*/
 /*}*/
-div {
-    /*height: 200px;*/
-    width: 100%;
-}
-
-.container {
-    border: 2px solid red;
-}
-
-p {
-    border: 2px solid green;
-    margin: 0;
-}
-
-h2 {
-    border: 2px solid blue;
-    margin: 0;
-}
-.coffee {
-    border: 3px solid purple;
-    width: 50%;
-}
-
-.main-container {
-    display: flex;
-    flex-direction: row-reverse;
-}
 
 h1 {
     text-align: center;
     border-bottom: 1pt solid lightgray;
 }
+
+#main-container {
+    border: 1pt solid hotpink;
+}
+
+p {
+    font-size: 1em;
+    border: 1pt solid black;
+
+}
+
+h2 {
+    font-size: 1.5em !important;
+}
+.coffee {
+    border: 1px solid hotpink;
+    width: 12em;
+
+}
+
+
+
