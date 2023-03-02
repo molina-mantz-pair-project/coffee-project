@@ -14,9 +14,21 @@
 div{
     border: 1px solid gray;
     /*height: 200px;*/
-    /*width: 200px;*/
+    width: 50%;
 }
 .container{
-    border: 1px solid red;
+    border: 2px solid red;
+
+}
+p{
+    border: 2px solid green;
+
+}
+h2{
+    border: 2px solid blue;
+
+}
+.coffee{
+    border: 8px solid purple;
 
 }
