@@ -1,9 +1,22 @@
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
-}
+/*table {*/
+/*    border-collapse: collapse;*/
+/*    margin: 15px 0;*/
+/*}*/
 
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
+/*td, th {*/
+/*    border: 1px solid black;*/
+/*    padding: 5px 10px;*/
+/*}*/
+
+/*div{*/
+/*    border: 1px solid black;*/
+/*}*/
+div{
+    border: 1px solid gray;
+    /*height: 200px;*/
+    /*width: 200px;*/
+}
+.container{
+    border: 1px solid red;
+
 }
