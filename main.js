@@ -6,7 +6,6 @@
 //     html += '<td>' + coffee.name + '</td>';
 //     html += '<td>' + coffee.roast + '</td>';
 //     html += '</tr>';
-//
 //     return html;
 // }
 function renderCoffee(coffee) {
