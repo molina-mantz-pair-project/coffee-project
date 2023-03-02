@@ -13,15 +13,26 @@
             <div class="row d-flex m-auto">
                 <div class="container d-flex col-6 flex-wrap p-0 m-auto" id="coffees"></div>
 
-                <div class="container d-flex col-6" id="form-inputs">
+                <div class="container d-flex flex-direction-column col-6 border border black" id="form-inputs">
                     <form>
-                        <label for="roast-selection"></label>
+
+                        <label for="roast-selection">Roast</label>
+                        <br>
                         <select id="roast-selection">
                             <option>light</option>
                             <option>medium</option>
                             <option>dark</option>
                         </select>
+                        <br>
+
+                        <label for="search-by-name">Coffee Name</label>
+                        <br>
+                        <input type="search" id="search-by-name" name="search-by-name">
+                        <br>
+
+
                         <input id="submit" type="submit" />
+
                     </form>
                 </div>
 
