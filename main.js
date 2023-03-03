@@ -76,6 +76,7 @@ function searchByName () {
     tbody.innerHTML = renderCoffees(coffeeFilter);
 }
 
+
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
@@ -83,3 +84,18 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+var coffeeClick = document.querySelectorAll('.coffee');
+coffeeClick.forEach(function (coffee){
+    coffee.addEventListener('click', addToCart)
+})
+function addToCart (){
+    alert("You've added a coffee");
+}
+
+// THIS IS AN ATTEMPT TO MAKE EVENLISTENERS WORK ON FILTERED ELEMENTS
+
+// document.getElementById('roast-selection').addEventListener('change', renderCoffees);
+
+
+
