@@ -22,13 +22,19 @@ function renderCoffees(coffees) {
 // SEARCHES FOR THE SELECTED ROAST USING FOR EACH LOOP:
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
+    var selectedRoast = roastSelection.value; //This will equal either 'light' 'medium' 'dark' or 'all'
     var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }
-    });
+
+    if (selectedRoast === 'all') {
+        filteredCoffees=coffees;
+    } else {
+        coffees.forEach(function(coffee) {
+            if (coffee.roast === selectedRoast) {
+                filteredCoffees.push(coffee);
+
+            }
+        })
+    };
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
