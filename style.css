@@ -12,6 +12,11 @@
 /*    border: 1px solid black;*/
 /*}*/
 
+.navbar{
+    font-size: large;
+}
+
+
 h1 {
     text-align: center;
     border-bottom: 1pt solid lightgray;
