@@ -38,6 +38,12 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+window.onload = function() {
+    document.getElementById('roast-selection').value = 'all';
+
+    updateCoffees();
+}
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
