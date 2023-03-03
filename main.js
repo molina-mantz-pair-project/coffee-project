@@ -13,7 +13,7 @@ function renderCoffee(coffee) {
 //RETURNS ELEMENTS WITH SELECTED ROASTS AND DISPLAYS THEM FROM BOTTOM TO TOP:
 function renderCoffees(coffees) {
     var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
+    for(var i = 0; i <= coffees.length -1; i++) {
         html += renderCoffee(coffees[i]);
     }
     return html;
