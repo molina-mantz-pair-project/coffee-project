@@ -21,18 +21,24 @@ h1 {
     border: 1pt solid hotpink;
 }
 
+h2 {
+    font-size: 2em;
+}
+
 p {
-    font-size: 1em;
+    font-size: 1.5em;
+    font-style: italic;
+
     /*border: 1pt solid black;*/
 
 }
 
-h2 {
-    font-size: 1.5em !important;
-}
 .coffee {
     /*border: 1px solid hotpink;*/
-    width: 12em;
+    width: 13em;
+}
+
+#coffees {
 
 }
 

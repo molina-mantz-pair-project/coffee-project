@@ -8,8 +8,11 @@
 //     html += '</tr>';
 //     return html;
 // }
+
+
+//Removed unnecessary flex elements from the renderCoffee function: March 2 2023
 function renderCoffee(coffee) {
-    var html = '<div class="coffee d-flex flex-wrap mb-3">';
+    var html = '<div class="coffee mb-5">';
     html += '<h2>' + coffee.name + '</h2>';
     html += '<p>' + coffee.roast + '</p>';
     html += '</div>';
@@ -58,6 +61,13 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
+//Add function to search coffee selection by name:
+function searchByName () {
+    var inputValueByName = document.getElementById("search-by-name").value.toLowerCase();
+    var coffeeFilter = coffees.filter((coffee)=>
+        coffee.name.toLowerCase().includes(inputValueByName));
+        renderCoffee(coffeeFilter);
+}
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
