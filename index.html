@@ -20,12 +20,16 @@
 
                                 <label for="roast-selection">Search By Roast</label>
                                 <br>
-                                <select id="roast-selection">
+
+                                <select class="form-select" id="roast-selection" aria-label="Default select example">
                                     <option value="all" selected>all</option>
                                     <option value="light">light</option>
                                     <option value="medium">medium</option>
                                     <option value="dark">dark</option>
                                 </select>
+
+                                <br>
+                                <input id="submit" type="submit" />
                                 <br>
 
                                 <label for="search-by-name">Search By Coffee Name</label>
@@ -33,7 +37,7 @@
                                 <input type="text" id="search-by-name" name="search-by-name" oninput="searchByName()">
                                 <br>
 
-                                <input id="submit" type="submit" />
+
 
                             </form>
                         </div>
