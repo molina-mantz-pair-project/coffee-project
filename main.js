@@ -1,14 +1,4 @@
 "use strict"
-// GIMMIE THE COFFEE IN A TABLE BY ID NAME AND ROAST
-// function renderCoffee(coffee) {
-//     var html = '<tr class="coffee">';
-//     html += '<td>' + coffee.id + '</td>';
-//     html += '<td>' + coffee.name + '</td>';
-//     html += '<td>' + coffee.roast + '</td>';
-//     html += '</tr>';
-//     return html;
-// }
-
 
 //Removed unnecessary flex elements from the renderCoffee function: March 2 2023
 function renderCoffee(coffee) {
@@ -20,7 +10,7 @@ function renderCoffee(coffee) {
     return html;
 }
 
-// FIND THE ROASTS AND GIVE THEM FROM BOTTOM TO TOP
+//RETURNS ELEMENTS WITH SELECTED ROASTS AND DISPLAYS THEM FROM BOTTOM TO TOP:
 function renderCoffees(coffees) {
     var html = '';
     for(var i = coffees.length - 1; i >= 0; i--) {
@@ -29,7 +19,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
-// GIVES US THE SELECTED ROASTS IT FILTERS THEM
+// SEARCHES FOR THE SELECTED ROAST USING FOR EACH LOOP:
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
@@ -59,7 +49,8 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-//Add function to search coffee selection by name:
+
+//Add function to search coffee selection by name; display matching coffees as the user types:
 function searchByName () {
 
     var inputValueByName = document.getElementById("search-by-name").value.toLowerCase();
@@ -72,27 +63,6 @@ function searchByName () {
     });
     tbody.innerHTML = renderCoffees(coffeeFilter);
 }
-
-/*function renderCoffees(coffees) {
-    var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
-        html += renderCoffee(coffees[i]);
-    }
-    return html;
-}*/
-
-
-/*function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-}*/
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
