@@ -6,13 +6,45 @@ h2 {
     font-size: 2em;
 }
 
-p {
+/*p {
     font-size: 1.5em;
     font-style: italic;
-}
+}*/
 
 .coffee {
     width: 13em;
+}
+
+.shoppingCartDiv {
+    margin-top: 2em;
+}
+
+/*This is the <div> container for the <ul> shopping cart*/
+#container {
+    margin-top: .5em;
+    padding: 1em;
+    border-radius: 4pt;
+}
+/*This is the parent <ul> containing the dynamic <li> elements in the shopping cart*/
+.list-group {
+    margin-left: .5em;
+    background-color: whitesmoke;
+
+}
+/*This points to the children <li> elements in the shopping cart*/
+li {
+    padding-left: .5em;
+    border: 1pt solid lightgray;
+    list-style: none;
+}
+
+#coffee-video-container {
+    margin-top: 2em;
+}
+
+#coffee-video {
+    width: 100%    !important;
+    height: auto   !important;
 }
 
 

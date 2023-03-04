@@ -4,7 +4,7 @@
 function renderCoffee(coffee) {
     var html = '<div class="coffee mb-5">';
     html += '<h2>' + coffee.name + '</h2>';
-    html += '<p>' + coffee.roast + '</p>';
+    html += '<p class="fs-6">' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
@@ -149,6 +149,9 @@ function divBackgroundNormal () {
 
 }
 
+var playCoffeeVideo = document.getElementById('coffee-video');
+
+function
 
 
 
