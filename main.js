@@ -36,13 +36,18 @@ function updateCoffees(e) {
         })
     };
     tbody.innerHTML = renderCoffees(filteredCoffees);
-    //Added function to activate event listeners upon filtering: This is a local function that matches the global function that adds listeners to all by default. The downside is that its more code and it has to match the global function, so if there's a change it must be updated in multiple places. But...it works.
+    //Added function to activate event listeners upon filtering <select> element:
+    //This is a LOCAL function that matches the global function which adds listeners to ALL by default.
+    //The downside is that this requires more code, but attempts at using a 'change' listener on the <select> failed.
+    //For purposes of styling, this must match the values global function.
+    //If there's a change to one, there must be a change to the other.
+    //But...it works.
     var coffeeClick = document.querySelectorAll('.coffee');
     coffeeClick.forEach(function (coffee){
         coffee.addEventListener('click', addToCart)
         coffee.addEventListener('mouseover', divBackgroundChange)
         coffee.addEventListener('mouseout', divBackgroundNormal)
-    })
+    });
 }
 
 window.onload = function() {
@@ -81,6 +86,18 @@ function searchByName () {
         }
     });
     tbody.innerHTML = renderCoffees(coffeeFilter);
+    //Added function to activate event listeners upon filtering <select> element:
+    //This is a LOCAL function that matches the global function which adds listeners to ALL by default.
+    //The downside is that this requires more code, but attempts at using a 'change' listener on the <select> failed.
+    //For purposes of styling, this must match the values global function.
+    //If there's a change to one, there must be a change to the other.
+    //But...it works.
+    var coffeeClick = document.querySelectorAll('.coffee');
+    coffeeClick.forEach(function (coffee){
+        coffee.addEventListener('click', addToCart)
+        coffee.addEventListener('mouseover', divBackgroundChange)
+        coffee.addEventListener('mouseout', divBackgroundNormal)
+    });
 }
 
 
