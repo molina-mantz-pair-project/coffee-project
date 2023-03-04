@@ -1,6 +1,30 @@
-.navbar{
-    font-size: large;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    min-height: 100vh;
+}
+
+#outer-div {
+    background-size: cover;
+    position: relative;
+}
+
+#outer-image {
+    opacity: 12%;
+    position: absolute;
+}
+
+#main-container {
+    position: relative;
+    margin: auto;
+    background-color: white;
+    border: 12pt inset rosybrown;
+}
+
 
 h2 {
     font-size: 2em;
@@ -12,7 +36,8 @@ h2 {
 }*/
 
 .coffee {
-    width: 13em;
+    width: 12em;
+    margin-top: 2em;
 }
 
 .shoppingCartDiv {
