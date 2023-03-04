@@ -36,6 +36,13 @@ function updateCoffees(e) {
         })
     };
     tbody.innerHTML = renderCoffees(filteredCoffees);
+    //Added function to activate event listeners upon filtering: This is a local function that matches the global function that adds listeners to all by default. The downside is that its more code and it has to match the global function, so if there's a change it must be updated in multiple places. But...it works.
+    var coffeeClick = document.querySelectorAll('.coffee');
+    coffeeClick.forEach(function (coffee){
+        coffee.addEventListener('click', addToCart)
+        coffee.addEventListener('mouseover', divBackgroundChange)
+        coffee.addEventListener('mouseout', divBackgroundNormal)
+    })
 }
 
 window.onload = function() {
@@ -86,13 +93,17 @@ tbody.innerHTML = renderCoffees(coffees);
 submitButton.addEventListener('click', updateCoffees);
 
 
-//Add event listeners to dynamically created div elements:
+//Add event listeners to ALL dynamically created div elements:
 var coffeeClick = document.querySelectorAll('.coffee');
 coffeeClick.forEach(function (coffee){
     coffee.addEventListener('click', addToCart)
     coffee.addEventListener('mouseover', divBackgroundChange)
     coffee.addEventListener('mouseout', divBackgroundNormal)
 })
+
+//attempt to resolve forms listener issue:
+//document.getElementById('roast-selection').addEventListener('change', renderCoffee);
+
 function addToCart (){
     alert("You've added a coffee");
 }
@@ -113,9 +124,8 @@ function divBackgroundNormal () {
 
 }
 
-// THIS IS AN ATTEMPT TO MAKE EVENLISTENERS WORK ON FILTERED ELEMENTS
 
-// document.getElementById('roast-selection').addEventListener('change', renderCoffees);
+
 
 
 
