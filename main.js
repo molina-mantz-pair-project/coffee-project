@@ -149,9 +149,22 @@ function divBackgroundNormal () {
 
 }
 
+//This section of code plays the embedded video when the user hovers their mouse over the video:
 var playCoffeeVideo = document.getElementById('coffee-video');
+function playVideoOnHover () {
+    playCoffeeVideo.play();
+}
 
-function
+playCoffeeVideo.addEventListener('mouseover', playVideoOnHover);
+
+//This section of code stops the embedded video when the use's mouse leave the video:
+var stopCoffeeVideo = document.getElementById('coffee-video');
+
+function stopVideoOnMouseOut () {
+    stopCoffeeVideo.pause();
+}
+
+stopCoffeeVideo.addEventListener('mouseout', stopVideoOnMouseOut)
 
 
 
