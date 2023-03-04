@@ -36,10 +36,10 @@ function updateCoffees(e) {
         })
     };
     tbody.innerHTML = renderCoffees(filteredCoffees);
-    //Added function to activate event listeners upon filtering <select> element:
-    //This is a LOCAL function that matches the global function which adds listeners to ALL by default.
+    //Added function to activate event listeners upon filtering <select> elements:
+    //This is a LOCAL function that matches the data of the global function which adds listeners to ALL by default.
     //The downside is that this requires more code, but attempts at using a 'change' listener on the <select> failed.
-    //For purposes of styling, this must match the values global function.
+    //For purposes of styling, this must match the values of the global function.
     //If there's a change to one, there must be a change to the other.
     //But...it works.
     var coffeeClick = document.querySelectorAll('.coffee');
@@ -86,10 +86,10 @@ function searchByName () {
         }
     });
     tbody.innerHTML = renderCoffees(coffeeFilter);
-    //Added function to activate event listeners upon filtering <select> element:
-    //This is a LOCAL function that matches the global function which adds listeners to ALL by default.
+    //Added function to activate event listeners upon filtering <input> elements:
+    //This is a LOCAL function that matches the data of the global function which adds listeners to ALL by default.
     //The downside is that this requires more code, but attempts at using a 'change' listener on the <select> failed.
-    //For purposes of styling, this must match the values global function.
+    //For purposes of styling, this must match the values of the global function.
     //If there's a change to one, there must be a change to the other.
     //But...it works.
     var coffeeClick = document.querySelectorAll('.coffee');
@@ -100,13 +100,10 @@ function searchByName () {
     });
 }
 
-
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-
 tbody.innerHTML = renderCoffees(coffees);
-
 submitButton.addEventListener('click', updateCoffees);
 
 
@@ -118,8 +115,9 @@ coffeeClick.forEach(function (coffee){
     coffee.addEventListener('mouseout', divBackgroundNormal)
 })
 
-//attempt to resolve forms listener issue:
-//document.getElementById('roast-selection').addEventListener('change', renderCoffee);
+//Adding functions that are associated with event listeners:
+//This function apply to dynamically created <div> elements in three places above:
+//Thees include the 'all', <select>, and <input> functions.
 
 function addToCart (){
     alert("You've added a coffee");
