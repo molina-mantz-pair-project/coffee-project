@@ -117,10 +117,20 @@ coffeeClick.forEach(function (coffee){
 
 //Adding functions that are associated with event listeners:
 //This function apply to dynamically created <div> elements in three places above:
-//Thees include the 'all', <select>, and <input> functions.
+//These include the 'all', <select>, and <input> functions.
 
-function addToCart (){
-    alert("You've added a coffee");
+//The function 'addToCart' grabs data from the dynamically created <div> element,
+//pushes it to an unordered list, and displays to the user on the HTML:
+function addToCart (event){
+    var coffeeDiv = event.target.closest("div");
+
+    //This creates a new list item:
+    var li = document.createElement("li");
+    li.textContent = coffeeDiv.querySelector("h2").textContent + ' : ' + coffeeDiv.querySelector("p").textContent;;
+
+    //This adds the new list item to the UL or shopping cart
+    var cart = document.getElementById("cart");
+    cart.appendChild(li);
 }
 
 function divBackgroundChange () {

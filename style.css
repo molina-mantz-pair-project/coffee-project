@@ -1,28 +1,5 @@
-/*table {*/
-/*    border-collapse: collapse;*/
-/*    margin: 15px 0;*/
-/*}*/
-
-/*td, th {*/
-/*    border: 1px solid black;*/
-/*    padding: 5px 10px;*/
-/*}*/
-
-/*div{*/
-/*    border: 1px solid black;*/
-/*}*/
-
 .navbar{
     font-size: large;
-}
-
-
-h1 {
-    text-align: center;
-    border-bottom: 1pt solid lightgray;
-}
-
-#main-container {
 }
 
 h2 {
@@ -32,18 +9,10 @@ h2 {
 p {
     font-size: 1.5em;
     font-style: italic;
-
-    /*border: 1pt solid black;*/
-
 }
 
 .coffee {
-    /*border: 1px solid hotpink;*/
     width: 13em;
-}
-
-#coffees {
-
 }
 
 
