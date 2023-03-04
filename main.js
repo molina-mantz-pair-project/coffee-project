@@ -85,12 +85,32 @@ tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 
+
+//Add event listeners to dynamically created div elements:
 var coffeeClick = document.querySelectorAll('.coffee');
 coffeeClick.forEach(function (coffee){
     coffee.addEventListener('click', addToCart)
+    coffee.addEventListener('mouseover', divBackgroundChange)
+    coffee.addEventListener('mouseout', divBackgroundNormal)
 })
 function addToCart (){
     alert("You've added a coffee");
+}
+
+function divBackgroundChange () {
+    this.style.backgroundColor = '#F0E6E6';
+    this.style.width = '220px';
+    this.style.height = '112px';
+    this.style.borderRadius = '12px';
+    this.style.padding = '7px';
+}
+
+function divBackgroundNormal () {
+    this.style.backgroundColor = 'white';
+    this.style.width = '208px';
+    this.style.height = '98.4px';
+    this.style.padding = '0px';
+
 }
 
 // THIS IS AN ATTEMPT TO MAKE EVENLISTENERS WORK ON FILTERED ELEMENTS
