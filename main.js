@@ -187,6 +187,22 @@ function addToCart (event){
     //This appends the list item to the unordered list (e.g. shopping cart):
     cart.appendChild(liSweeteners);
 
+    //THIS FUNCTION, WHEN CALLED BY SUBMIT, ITERATES THROUGH THE UNORDERED LIST (E.G. SHOPPING CART) AND COUNTS THE TOTAL NUMBER OF LIST ITEMS:
+    //THEN, THE TOTAL NUMBER OF LIST ITEMS IS DIVIDED BY THREE ('3'), WHICH GIVES US THE TOTAL NUMBER OF COFFEES THAT WERE SELECTED BY THE USER:
+    //SINCE ALL COFFEES ARE PRICED ARE FIXED AT $5.00, WE CAN THEN MULTIPLY THE RESULT BY FIVE ('5') AND RETURN A TOTAL PRICE TO THE USER:
+
+/*    function calculateTotal (){
+        if (clickTrue) {
+            var numCartItems = document.getElementById('cart');
+            var numListItems = [];
+
+            for (var i = 0; i < numCartItems.childNodes.length; i++) {
+                numListItems.push(numCartItems.childNodes[i]);
+            }
+        }
+    }*/
+
+
 
 }
 
