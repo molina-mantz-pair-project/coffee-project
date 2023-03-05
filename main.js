@@ -115,8 +115,8 @@ coffeeClick.forEach(function (coffee){
     coffee.addEventListener('mouseout', divBackgroundNormal)
 })
 
-//Adding functions that are associated with event listeners:
-//This function apply to dynamically created <div> elements in three places above:
+//Adding functions that are associated with event listeners of the dynamically created <div> elements:
+//These functions apply to dynamically created <div> elements in three places above:
 //These include the 'all', <select>, and <input> functions.
 
 //The function 'addToCart' grabs data from the dynamically created <div> element,
@@ -124,13 +124,41 @@ coffeeClick.forEach(function (coffee){
 function addToCart (event){
     var coffeeDiv = event.target.closest("div");
 
-    //This creates a new list item:
-    var li = document.createElement("li");
-    li.textContent = coffeeDiv.querySelector("h2").textContent + ' : ' + coffeeDiv.querySelector("p").textContent;;
+    //This creates a new list item for the selected coffee:
+    var liCoffeeSelection = document.createElement("li");
+    liCoffeeSelection.textContent = coffeeDiv.querySelector("h2").textContent + ', ' + coffeeDiv.querySelector("p").textContent + ' roast';
 
-    //This adds the new list item to the UL or shopping cart
+    //This adds the new the coffee selection list item to the UL (e.g. shopping cart)
     var cart = document.getElementById("cart");
-    cart.appendChild(li);
+    cart.appendChild(liCoffeeSelection);
+
+    //This creates a new list item with a dropdown menu that allows the user to select creams:
+    var liCreams = document.createElement("li");
+    liCreams.textContent = "Select your cream ----->   ";
+
+    //This creates a dropdown menu to hold the cream selections:
+    var dropdownCreams = document.createElement("select");
+
+    //The following variables create the content for the cream options:
+    var creamChoice1 = document.createElement("option");
+    creamChoice1.text = "Organic Heavy Cream";
+    dropdownCreams.add(creamChoice1);
+
+    var creamChoice2 = document.createElement("option");
+    creamChoice2.text="Organic Whole Milk";
+    dropdownCreams.add(creamChoice2);
+
+    var creamChoice3 = document.createElement("option");
+    creamChoice3.text="Organic Half & Half";
+    dropdownCreams.add(creamChoice3);
+
+    //This appends the dropdown menu to the list item:
+    liCreams.appendChild(dropdownCreams);
+
+    //This appends the list item to the unordered list (e.g. shopping cart):
+    cart.appendChild(liCreams);
+
+
 }
 
 function divBackgroundChange () {

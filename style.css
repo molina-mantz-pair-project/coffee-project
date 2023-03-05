@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
 }
 
+/*Outer <div> element - this is used specifically to create the background image and opacity overlay*/
 #outer-div {
     background-size: cover;
     position: relative;
@@ -17,7 +18,7 @@ body {
     opacity: 12%;
     position: absolute;
 }
-
+/*Main container - this houses all of the elements on the page except the navbar*/
 #main-container {
     position: relative;
     margin: auto;
@@ -25,23 +26,49 @@ body {
     border: 12pt inset rosybrown;
 }
 
-
-h2 {
+/*Roast selection label and button styling*/
+#roast-selection-label {
     font-size: 2em;
 }
 
-/*p {
-    font-size: 1.5em;
-    font-style: italic;
-}*/
+#submit {
+    background-color: #796363 !important;
+}
 
+/*Search box styling*/
+#search-by-name-label {
+    font-size: 2em;
+    margin-top: 1em;
+}
+
+/*Dynamically-created <div> element styling with coffee name and roast*/
 .coffee {
     width: 12em;
     margin-top: 2em;
 }
 
+h2 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+/*Shopping cart styling*/
 .shoppingCartDiv {
     margin-top: 2em;
+}
+
+#coffee-cart-main-header {
+    padding-left: 0;
+    font-family: sans-serif;
+}
+
+#coffee-cart-sub-header {
+    padding-left: 0;
+    font-family: sans-serif;
 }
 
 /*This is the <div> container for the <ul> shopping cart*/
@@ -49,20 +76,22 @@ h2 {
     margin-top: .5em;
     padding: 1em;
     border-radius: 4pt;
+    background-color: #796363 !important;
 }
 /*This is the parent <ul> containing the dynamic <li> elements in the shopping cart*/
 .list-group {
-    margin-left: .5em;
+    margin: auto;
     background-color: whitesmoke;
 
 }
-/*This points to the children <li> elements in the shopping cart*/
+/*This points to the children <li> elements within the shopping cart*/
 li {
     padding-left: .5em;
-    border: 1pt solid lightgray;
+    border: 1pt inset lightgray;
     list-style: none;
 }
 
+/*Coffee video styling*/
 #coffee-video-container {
     margin-top: 2em;
 }

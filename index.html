@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -29,7 +30,7 @@
             <div class="d-flex flex-column col-6" id="form-inputs">
                 <form>
 
-                    <label for="roast-selection">Search By Roast</label>
+                    <label class="d-flex" id="roast-selection-label" for="roast-selection">Search By Roast</label>
                     <br>
 
                     <select class="form-select" id="roast-selection" aria-label="Default select example">
@@ -39,28 +40,23 @@
                         <option value="dark">dark</option>
                     </select>
 
-                    <br>
-
                     <div class="d-grid gap-2">
                     <button type="button" class="btn btn-secondary" id="submit">Submit</button>
                     </div>
-                    <br>
-
-                <br>
 
 
-                    <label for="search-by-name" class="form-label">Or, Search By Coffee Name</label>
+                    <label for="search-by-name" class="d-flex form-label" id="search-by-name-label">Or, Search By Coffee Name</label>
                     <input type="text" class="form-control" id="search-by-name" oninput=searchByName() aria-describedby="emailHelp">
 
                 </form>
-                <br>
-                <br>
-                <br>
-                <div class="shoppingCartDiv">
-                    <h3>Your Order</h3>
-                    <h5><em>Click on a coffee to add it to your cart</em></h5>
-                    <div class="container bg bg-secondary" id="container">
-                        <ol class="list-group" id="cart"></ol>
+
+                <div class="container shoppingCartDiv">
+                    <div class="row">
+                        <h3 class="d-flex col-12" id="coffee-cart-main-header">Your Order</h3>
+                        <h5 class="d-flex col-12" id="coffee-cart-sub-header"><em>Click on a coffee to add it to your cart!</em></h5>
+                        <div class="container col-12 bg bg-secondary" id="container">
+                            <ol class="list-group" id="cart"></ol>
+                        </div>
                     </div>
                 </div>
 
@@ -72,7 +68,7 @@
 
             </div>
         </div>
-</div>
+    </div>
 </div>
 
 
