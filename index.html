@@ -58,8 +58,12 @@
                             <ol class="list-group" id="cart"></ol>
                         </div>
                     </div>
-                    <button onclick="calculateTotal()">Count List Items</button>
-                    <p>Your total is: <span id="output"></span></p>
+
+                    <div class="d-drid gap-2">
+                        <p>Your current total is: $<span id="output"></span></p>
+                        <button type="button" class="btn btn-secondary" id="checkout" onclick="calculateTotal()">Checkout!</button>
+                    </div>
+
                 </div>
 
                 <div class="container" id="coffee-video-container">

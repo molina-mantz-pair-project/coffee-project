@@ -187,11 +187,19 @@ function addToCart (event){
     //This appends the list item to the unordered list (e.g. shopping cart):
     cart.appendChild(liSweeteners);
 
+    //THIS FUNCTION, WHEN CALLED BY SUBMIT, ITERATES THROUGH THE UNORDERED LIST (E.G. SHOPPING CART) AND COUNTS THE TOTAL NUMBER OF LIST ITEMS:
+    //THEN, THE TOTAL NUMBER OF LIST ITEMS IS DIVIDED BY THREE ('3'), WHICH GIVES US THE TOTAL NUMBER OF COFFEES THAT WERE SELECTED BY THE USER:
+    //SINCE ALL COFFEES ARE PRICED ARE FIXED AT $5.00, WE CAN THEN MULTIPLY THE RESULT BY FIVE ('5') AND RETURN A TOTAL PRICE TO THE USER:
+    function calculateTotal () {
+        var cartList = document.querySelector('ol');
+        var numListItems = cartList.getElementsByTagName('li').length;
+        var chargeableItems = (numListItems/3)*5;
+        var chargeableItemsValue = chargeableItems.toFixed(2);
+        var userTotal = document.getElementById('output');
+        userTotal.innerHTML = chargeableItemsValue;
+    }
 
-
-
-
-
+    calculateTotal();
 
 }
 
@@ -211,17 +219,7 @@ function divBackgroundNormal () {
 
 }
 
-//THIS FUNCTION, WHEN CALLED BY SUBMIT, ITERATES THROUGH THE UNORDERED LIST (E.G. SHOPPING CART) AND COUNTS THE TOTAL NUMBER OF LIST ITEMS:
-//THEN, THE TOTAL NUMBER OF LIST ITEMS IS DIVIDED BY THREE ('3'), WHICH GIVES US THE TOTAL NUMBER OF COFFEES THAT WERE SELECTED BY THE USER:
-//SINCE ALL COFFEES ARE PRICED ARE FIXED AT $5.00, WE CAN THEN MULTIPLY THE RESULT BY FIVE ('5') AND RETURN A TOTAL PRICE TO THE USER:
-function calculateTotal () {
-    var cartList = document.querySelector('ol');
-    var numListItems = cartList.getElementsByTagName('li').length;
-    var chargeableItems = (numListItems/3)*5;
-    var chargeableItemsValue = chargeableItems.toFixed(2);
-    var userTotal = document.getElementById('output');
-    userTotal.innerHTML = chargeableItemsValue;
-}
+
 
 //This section of code plays the embedded video when the user hovers their mouse over the video:
 var playCoffeeVideo = document.getElementById('coffee-video');
