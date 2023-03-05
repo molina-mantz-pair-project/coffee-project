@@ -26,6 +26,10 @@ body {
     border: 12pt inset rosybrown;
 }
 
+#form-1 {
+    margin: .75em;
+}
+
 /*Roast selection label and button styling*/
 #roast-selection-label {
     font-size: 2em;
@@ -35,10 +39,14 @@ body {
     background-color: #796363 !important;
 }
 
+#search-by-name {
+    margin: auto;
+}
+
 /*Search box styling*/
 #search-by-name-label {
     font-size: 2em;
-    margin-top: 1em;
+    margin: auto;
 }
 
 /*Dynamically-created <div> element styling with coffee name and roast*/
@@ -61,27 +69,40 @@ p {
     margin-top: 2em;
 }
 
+#div-row {
+    margin: auto;
+}
+
 #coffee-cart-main-header {
     padding-left: 0;
     font-family: sans-serif;
+    margin: auto;
 }
 
 #coffee-cart-sub-header {
     padding-left: 0;
     font-family: sans-serif;
+    margin: auto;
+}
+#form-inputs {
+    padding: 0;
+}
+
+#runningTotal {
 }
 
 /*This is the <div> container for the <ul> shopping cart*/
-#container {
+#coffee-cart-container {
     margin-top: .5em;
-    padding: 1em;
+    padding: .5em;
     border-radius: 4pt;
     background-color: #796363 !important;
 }
-/*This is the parent <ul> containing the dynamic <li> elements in the shopping cart*/
+/*This is the parent <ol> containing the dynamic <li> elements in the shopping cart*/
 .list-group {
     margin: auto;
     background-color: whitesmoke;
+    overflow: hidden;
 
 }
 /*This points to the children <li> elements within the shopping cart*/
@@ -89,6 +110,11 @@ li {
     padding-left: .5em;
     border: 1pt inset lightgray;
     list-style: none;
+}
+
+/*This is the 'checkout' button associated with the shopping cart*/
+#checkout {
+    background-color: #796363 !important;
 }
 
 /*Coffee video styling*/
