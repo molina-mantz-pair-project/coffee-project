@@ -124,7 +124,7 @@ coffeeClick.forEach(function (coffee){
 function addToCart (event){
     var coffeeDiv = event.target.closest("div");
 
-    //This creates a new list item for the selected coffee:
+    //THIS CREATES A NEW LIST ITEM FOR THE COFFEE SELECTION:
     var liCoffeeSelection = document.createElement("li");
     liCoffeeSelection.textContent = coffeeDiv.querySelector("h2").textContent + ', ' + coffeeDiv.querySelector("p").textContent + ' roast';
 
@@ -132,9 +132,10 @@ function addToCart (event){
     var cart = document.getElementById("cart");
     cart.appendChild(liCoffeeSelection);
 
-    //This creates a new list item with a dropdown menu that allows the user to select creams:
+    //THIS BLOCK OF VARIABLES CREATES A NEW LIST ITEM WITH A DROPDOWN MENU
+    //THAT ALLOWS USERS TO MAKE AN IN-LINE CREAM SELECTION:
     var liCreams = document.createElement("li");
-    liCreams.textContent = "Select your cream ----->   ";
+    liCreams.textContent = "Select your cream ------>";
 
     //This creates a dropdown menu to hold the cream selections:
     var dropdownCreams = document.createElement("select");
@@ -157,6 +158,34 @@ function addToCart (event){
 
     //This appends the list item to the unordered list (e.g. shopping cart):
     cart.appendChild(liCreams);
+
+    //THIS BLOCK OF VARIABLES CREATES A NEW LIST ITEM WITH A DROPDOWN MENU
+    //THAT ALLOWS USERS TO MAKE AN IN-LINE SWEETENER SELECTION:
+
+    var liSweeteners = document.createElement('li');
+    liSweeteners.textContent = "Select your sweetener -->"
+
+    //This creates a dropdown menu to hold the sweetener variables:
+    var dropdownSweeteners = document.createElement('select');
+
+    //The following variables create the content for the sweetener options:
+    var sweetener1 = document.createElement('option');
+    sweetener1.text = "Organic Cane Sugar"
+    dropdownSweeteners.add(sweetener1);
+
+    var sweetener2 = document.createElement('option');
+    sweetener2.text = "Organic Maple Syrup";
+    dropdownSweeteners.add(sweetener2);
+
+    var sweetener3 = document.createElement('option');
+    sweetener3.text = "Organic White Honey"
+    dropdownSweeteners.add(sweetener3);
+
+    //This appends the sweeteners dropdown menu to the list item:
+    liSweeteners.appendChild(dropdownSweeteners);
+
+    //This appends the list item to the unordered list (e.g. shopping cart):
+    cart.appendChild(liSweeteners);
 
 
 }
