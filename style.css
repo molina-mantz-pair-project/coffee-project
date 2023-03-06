@@ -1,23 +1,23 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    min-height: 100vh;
 }
 
 /*Outer <div> element - this is used specifically to create the background image and opacity overlay*/
 #outer-div {
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 
 #outer-image {
     opacity: 12%;
     position: absolute;
+    width: 100%;
+    height: 100%;
+
 }
+
 /*Main container - this houses all of the elements on the page except the navbar*/
 #main-container {
     position: relative;
@@ -84,11 +84,9 @@ p {
     font-family: sans-serif;
     margin: auto;
 }
+
 #form-inputs {
     padding: 0;
-}
-
-#runningTotal {
 }
 
 /*This is the <div> container for the <ul> shopping cart*/
@@ -126,6 +124,8 @@ li {
     width: 100%    !important;
     height: auto   !important;
 }
+
+
 
 
 
