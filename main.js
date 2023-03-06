@@ -1,6 +1,6 @@
 "use strict"
 
-//Removed unnecessary flex elements from the renderCoffee function: March 2 2023
+//THIS FUNCTION GENERATES DYNAMICALLY-CREATED <DIV> ELEMENTS:
 function renderCoffee(coffee) {
     var html = '<div class="coffee mb-5">';
     html += '<h2>' + coffee.name + '</h2>';
@@ -10,7 +10,7 @@ function renderCoffee(coffee) {
     return html;
 }
 
-//RETURNS ELEMENTS WITH SELECTED ROASTS AND DISPLAYS THEM FROM BOTTOM TO TOP:
+//THIS FUNCTION CAPTURES THE ELEMENTS ASSOCIATED WITH THE SELECTED ROAST AND DISPLAYS THEM IN ASCENDING ORDER BY ID:
 function renderCoffees(coffees) {
     var html = '';
     for(var i = 0; i <= coffees.length -1; i++) {
@@ -19,10 +19,11 @@ function renderCoffees(coffees) {
     return html;
 }
 
-// SEARCHES FOR THE SELECTED ROAST USING FOR EACH LOOP:
+//THIS FUNCTION FILTERS FOR THE SELECTED ROAST USING FOR-EACH LOOP:
 function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value; //This will equal either 'light' 'medium' 'dark' or 'all'
+    //This restricts the form to updating results locally:
+    e.preventDefault();
+    var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
 
     if (selectedRoast === 'all') {
@@ -34,7 +35,7 @@ function updateCoffees(e) {
 
             }
         })
-    };
+    }
     tbody.innerHTML = renderCoffees(filteredCoffees);
     //Added function to activate event listeners upon filtering <select> elements:
     //This is a LOCAL function that matches the data of the global function which adds listeners to ALL by default.
@@ -50,13 +51,15 @@ function updateCoffees(e) {
     });
 }
 
+//THIS FUNCTION ENSURES THAT ALL COFFEE <DIV> ELEMENTS ARE DISPLAYED AND FUNCTIONAL BEFORE JS EXECUTES:
 window.onload = function() {
     document.getElementById('roast-selection').value = 'all';
 
     updateCoffees();
 }
 
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+//THIS IS THE PRIMARY ARRAY USED FOR THIS PROJECT:
+//SOURCE: http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -74,7 +77,7 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-//Add function to search coffee selection by name; display matching coffees as the user types:
+//THE 'SEARCH BY NAME' FUNCTION FILTERS COFFEE SELECTIONS BY NAME AND DISPLAYS THEM AS THE USER TYPES:
 function searchByName () {
 
     var inputValueByName = document.getElementById("search-by-name").value.toLowerCase();
@@ -115,13 +118,10 @@ coffeeClick.forEach(function (coffee){
     coffee.addEventListener('mouseout', divBackgroundNormal)
 })
 
-//Adding functions that are associated with event listeners of the dynamically created <div> elements:
-//These functions apply to dynamically created <div> elements in three places above:
-//These include the 'all', <select>, and <input> functions.
-
-//The function 'addToCart' grabs data from the dynamically created <div> element,
-//pushes it to an unordered list, and displays to the user on the HTML:
+//THE ADD TO CART FUNCTION GRABS DATA FROM THE DYNAMICALLY CREATED DIV ELEMENTS,
+//PUSHES IT TO AN UNORDERED LIST AND DISPLAYS IT TO THE USER ON HTML:
 function addToCart (event){
+    var cart = document.getElementById("cart");
     var coffeeDiv = event.target.closest("div");
 
     //THIS CREATES A NEW LIST ITEM FOR THE COFFEE SELECTION:
@@ -129,11 +129,11 @@ function addToCart (event){
     liCoffeeSelection.textContent = coffeeDiv.querySelector("h2").textContent + ', ' + coffeeDiv.querySelector("p").textContent + ' roast';
 
     //This adds the new the coffee selection list item to the UL (e.g. shopping cart)
-    var cart = document.getElementById("cart");
+    //var cart = document.getElementById("cart");  //REMOVED
     cart.appendChild(liCoffeeSelection);
 
     //THIS BLOCK OF VARIABLES CREATES A NEW LIST ITEM WITH A DROPDOWN MENU
-    //THAT ALLOWS USERS TO MAKE AN IN-LINE CREAM SELECTION:
+    //WHICH ALLOWS USERS TO MAKE AN IN-LINE CREAM SELECTION:
     var liCreams = document.createElement("li");
     liCreams.textContent = "Select your cream ------>";
 
@@ -160,7 +160,7 @@ function addToCart (event){
     cart.appendChild(liCreams);
 
     //THIS BLOCK OF VARIABLES CREATES A NEW LIST ITEM WITH A DROPDOWN MENU
-    //THAT ALLOWS USERS TO MAKE AN IN-LINE SWEETENER SELECTION:
+    //WHICH ALLOWS USERS TO MAKE AN IN-LINE SWEETENER SELECTION:
 
     var liSweeteners = document.createElement('li');
     liSweeteners.textContent = "Select your sweetener -->"
@@ -187,22 +187,69 @@ function addToCart (event){
     //This appends the list item to the unordered list (e.g. shopping cart):
     cart.appendChild(liSweeteners);
 
+
     //THIS FUNCTION, WHEN CALLED BY SUBMIT, ITERATES THROUGH THE UNORDERED LIST (E.G. SHOPPING CART) AND COUNTS THE TOTAL NUMBER OF LIST ITEMS:
     //THEN, THE TOTAL NUMBER OF LIST ITEMS IS DIVIDED BY THREE ('3'), WHICH GIVES US THE TOTAL NUMBER OF COFFEES THAT WERE SELECTED BY THE USER:
     //SINCE ALL COFFEES ARE PRICED ARE FIXED AT $5.00, WE CAN THEN MULTIPLY THE RESULT BY FIVE ('5') AND RETURN A TOTAL PRICE TO THE USER:
     function calculateTotal () {
         var cartList = document.querySelector('ol');
-        var numListItems = cartList.getElementsByTagName('li').length;
+        //var numListItems = cartList.getElementsByTagName('li').length;
+        var numListItems = cartList.querySelectorAll('li').length;
         var chargeableItems = (numListItems/3)*5;
         var chargeableItemsValue = chargeableItems.toFixed(2);
         var userTotal = document.getElementById('output');
         userTotal.innerHTML = chargeableItemsValue;
     }
-
     calculateTotal();
-
 }
 
+//THE FOLLOWING BLOCK OF CODE CAPTURES DATA FROM THE USERS SHOPPING CART (ID='CART'),
+//AND SENDS IT TO THE REQUEST INSPECTOR ENDPOINT TO GENERATE A TEST EVENT:
+
+//This variable grabs <ol> that contains coffee data, cream, sweetener <li>'s;
+var cartList = document.getElementById('cart');
+
+//This variable grabs the form itself and is needed to talk to Request Inspector using a POST method;
+var shoppingCartForm = document.getElementById('shopping-cart-form');
+
+//This function activates the Checkout button:
+shoppingCartForm.addEventListener('submit', function(event) {
+    console.log("Form Submitted");
+
+    //This creates an empty array which is populated with list-items are they are iterated:
+    var dataCoffee = [];
+
+    //This grabs all targeted list-items in the cart:
+    var numListItems = cartList.getElementsByTagName('li');
+    console.log(numListItems);
+
+    //This function iterates through every list-item:
+    for (let i=0; i < numListItems.length; i++) {
+        console.log(`Processing item ${i}`);
+        var listItem = numListItems[i];
+
+        //This grabs the Coffee Data (Name and Roast) as a string:
+        var inputText = listItem.textContent;
+
+        dataCoffee.push(inputText);
+    }
+    //This block of code translates the data to JSON and appends it to an element that is pushed to the endpoint:
+    var dataInput = document.createElement("input"); //Original
+    dataInput.setAttribute("type", "hidden"); //Original
+    dataInput.setAttribute("name", "list-data"); //Original
+    dataInput.setAttribute("value", JSON.stringify(dataCoffee)); //Original
+    shoppingCartForm.appendChild(dataInput); //Original
+
+    //This calls the submit button function:
+    event.preventDefault();
+    shoppingCartForm.submit();
+
+    //This alerts the user that their order has been received:
+    alert("Your order is being prepared! Thank you!")
+})
+
+//THE FOLLOWING FUNCTIONS ARE ASSOCIATED WITH EVENT LISTENERS FOR THE DYNAMICALLY-CREATED <DIV> ELEMENTS
+//THESE INCLUDE THE 'ALL', <SELECT>, AND INPUT FUNCTIONS:
 function divBackgroundChange () {
     this.style.backgroundColor = '#F0E6E6';
     this.style.width = '220px';
@@ -219,25 +266,22 @@ function divBackgroundNormal () {
 
 }
 
-
+//THE FOLLOWING FUNCTIONS ARE ASSOCIATED WITH EVENT LISTENERS FOR THE VIDEO:
 
 //This section of code plays the embedded video when the user hovers their mouse over the video:
 var playCoffeeVideo = document.getElementById('coffee-video');
 function playVideoOnHover () {
     playCoffeeVideo.play();
 }
-
 playCoffeeVideo.addEventListener('mouseover', playVideoOnHover);
 
-//This section of code stops the embedded video when the use's mouse leave the video:
+//This section of code stops the embedded video from playing when the use's mouse leave the video:
 var stopCoffeeVideo = document.getElementById('coffee-video');
 
 function stopVideoOnMouseOut () {
     stopCoffeeVideo.pause();
 }
-
 stopCoffeeVideo.addEventListener('mouseout', stopVideoOnMouseOut)
-
 
 
 
