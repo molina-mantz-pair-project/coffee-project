@@ -123,6 +123,7 @@ coffeeClick.forEach(function (coffee){
 function addToCart (event){
     var cart = document.getElementById("cart");
     var coffeeDiv = event.target.closest("div");
+    alert("Added to cart! Don't forget to select your creams and sweeteners!");
 
     //THIS CREATES A NEW LIST ITEM FOR THE COFFEE SELECTION:
     var liCoffeeSelection = document.createElement("li");
